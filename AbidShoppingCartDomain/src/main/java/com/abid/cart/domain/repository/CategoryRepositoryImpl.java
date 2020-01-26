@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.abid.cart.domain.model.Category;
 
 public class CategoryRepositoryImpl implements CategoryRepositoryCustom{
+	
     @PersistenceContext
     private EntityManager entityManager;
 	Session session = null;
@@ -22,13 +23,13 @@ public class CategoryRepositoryImpl implements CategoryRepositoryCustom{
 	@PostConstruct
 	public void init()
 	{
-        //session = entityManager.unwrap(Session.class);
-	}
+		entityManager=entityManager.getEntityManagerFactory().createEntityManager();
+		session = (Session) entityManager.unwrap(Session.class);	}
 	
 	@Override
 	public List<Category> list() {
 				
-        session = entityManager.unwrap(Session.class);
+        //session = entityManager.unwrap(Session.class);
 
 		String selectActiveCategory = "FROM Category WHERE active = :active";
 				

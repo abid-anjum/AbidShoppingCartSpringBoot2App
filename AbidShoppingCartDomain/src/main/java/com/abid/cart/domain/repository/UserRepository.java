@@ -10,7 +10,7 @@ import com.abid.cart.domain.model.Product;
 import com.abid.cart.domain.model.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> , UserRepositoryCustom{
 
 }
 interface UserRepositoryCustom

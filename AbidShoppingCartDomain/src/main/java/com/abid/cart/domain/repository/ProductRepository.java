@@ -9,7 +9,7 @@ import com.abid.cart.domain.model.Category;
 import com.abid.cart.domain.model.Product;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product, Long> , ProductRepositoryCustom{
 
 }
 interface ProductRepositoryCustom
@@ -18,7 +18,7 @@ interface ProductRepositoryCustom
 	List<Product> list();	
 	boolean add(Product product);
 	boolean update(Product product);
-	boolean delete(Product product);
+	//boolean delete(Product product);
 
 	List<Product> getProductsByParam(String param, int count);	
 	

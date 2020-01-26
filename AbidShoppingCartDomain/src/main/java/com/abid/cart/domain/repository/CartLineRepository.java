@@ -17,20 +17,21 @@ public interface CartLineRepository extends JpaRepository<CartLine, Long> , Cart
 
 interface CartLineRepositoryCustom
 {
-	public List<CartLineRepository> list(int cartId);
-	public CartLineRepository get(int id);	
-	public boolean add(CartLineRepository cartLine);
-	public boolean update(CartLineRepository cartLine);
-	public boolean remove(CartLineRepository cartLine);
+
+	public List<CartLine> list(int cartId);
+	public CartLine get(int id);	
+	public boolean add(CartLine cartLine);
+	public boolean update(CartLine cartLine);
+	public boolean remove(CartLine cartLine);
 	
 	// fetch the CartLine based on cartId and productId
-	public CartLineRepository getByCartAndProduct(int cartId, int productId);		
+	public CartLine getByCartAndProduct(int cartId, int productId);		
 		
 	// updating the cart
 	boolean updateCart(Cart cart);
 	
 	// list of available cartLine
-	public List<CartLineRepository> listAvailable(int cartId);
+	public List<CartLine> listAvailable(int cartId);
 	
 	// adding order details
 	boolean addOrderDetail(OrderDetail orderDetail);
