@@ -14,8 +14,7 @@ import com.abid.web.cart.model.UserModel;
 
 @ControllerAdvice
 public class GlobalController {
-	
-	
+
 	@Autowired
 	private UserRepository userDAO;
 	
@@ -24,7 +23,6 @@ public class GlobalController {
 	
 	private UserModel userModel = null;
 	private User user = null;	
-	
 	
 	@ModelAttribute("userModel")
 	public UserModel getUserModel() {		
