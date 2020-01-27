@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.abid.cart.domain.model.Address;
 import com.abid.cart.domain.model.Product;
-import com.abid.cart.domain.model.User;
+import com.abid.cart.domain.model.security.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> , UserRepositoryCustom{

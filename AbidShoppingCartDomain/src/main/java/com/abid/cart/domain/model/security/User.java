@@ -1,6 +1,7 @@
-package com.abid.cart.domain.model;
+package com.abid.cart.domain.model.security;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,19 +10,18 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
 
-import org.hibernate.validator.constraints.NotBlank;
+import com.abid.cart.domain.model.Cart;
 
 @Entity
 @Table(name = "user_detail")
 public class User implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -38,13 +38,34 @@ public class User implements Serializable{
 	@NotBlank(message = "Please enter contact number!")
 	@Column(name = "contact_number")
 	private String contactNumber;
-	private String role;
+	
 	@NotBlank(message = "Please enter password!")
 	private String password;
 	private boolean enabled = true;
 	@Transient
 	private String confirmPassword;
+	
+	@Transient
+	private String role;
+    public String getRole() {
+		return role;
+	}
 
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+
+	@ManyToMany
+    private Set<Role> roles;
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+    
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}
@@ -82,12 +103,14 @@ public class User implements Serializable{
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
-	public String getRole() {
-		return role;
+	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", contactNumber=" + contactNumber + ", password=" + password + ", enabled=" + enabled
+				+ ", confirmPassword=" + confirmPassword + ", roles=" + roles + ", cart=" + cart + "]";
 	}
-	public void setRole(String role) {
-		this.role = role;
-	}
+
 	public String getPassword() {
 		return password;
 	}
@@ -99,13 +122,6 @@ public class User implements Serializable{
 	}
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
-	}
-	
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", contactNumber=" + contactNumber + ", role=" + role + ", password=" + password + ", enabled="
-				+ enabled + "]";
 	}
 	
 	

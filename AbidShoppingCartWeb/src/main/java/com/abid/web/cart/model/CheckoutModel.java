@@ -7,7 +7,7 @@ import com.abid.cart.domain.model.Address;
 import com.abid.cart.domain.model.Cart;
 import com.abid.cart.domain.model.CartLine;
 import com.abid.cart.domain.model.OrderDetail;
-import com.abid.cart.domain.model.User;
+import com.abid.cart.domain.model.security.User;
 
 
 public class CheckoutModel implements Serializable {

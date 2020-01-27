@@ -11,7 +11,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.abid.cart.domain.model.Address;
-import com.abid.cart.domain.model.User;
+import com.abid.cart.domain.model.security.User;
 
 public class UserRepositoryImpl implements UserRepositoryCustom {
 

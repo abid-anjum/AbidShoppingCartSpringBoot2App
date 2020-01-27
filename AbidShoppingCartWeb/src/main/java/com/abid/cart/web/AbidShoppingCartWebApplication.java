@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @ComponentScan(basePackages = {
 		"com.abid.cart.web"})
-@EntityScan(basePackages = "com.abid.cart.domain.model")
+@EntityScan(basePackages = {"com.abid.cart.domain.model" , "com.abid.cart.domain.model.security"})
 @EnableJpaRepositories(basePackages = "com.abid.cart.domain.repository")
 @ImportResource("classpath:flow-definition.xml")
 public class AbidShoppingCartWebApplication {

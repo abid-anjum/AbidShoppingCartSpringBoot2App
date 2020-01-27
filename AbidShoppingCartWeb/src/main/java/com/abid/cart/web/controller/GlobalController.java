@@ -8,7 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import com.abid.cart.domain.model.User;
+import com.abid.cart.domain.model.security.User;
 import com.abid.cart.domain.repository.UserRepository;
 import com.abid.web.cart.model.UserModel;
 
@@ -41,12 +41,14 @@ public class GlobalController {
 					// set the name and the id
 					userModel.setId(user.getId());
 					userModel.setFullName(user.getFirstName() + " " + user.getLastName());
+					
+					/*
 					userModel.setRole(user.getRole());
 					
 					if(user.getRole().equals("USER")) {
 						userModel.setCart(user.getCart());					
 					}				
-	
+					*/
 					session.setAttribute("userModel", userModel);
 					return userModel;
 				}			

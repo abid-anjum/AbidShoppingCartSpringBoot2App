@@ -3,7 +3,7 @@ package com.abid.web.cart.model;
 import java.io.Serializable;
 
 import com.abid.cart.domain.model.Address;
-import com.abid.cart.domain.model.User;
+import com.abid.cart.domain.model.security.User;
 
 
 public class RegisterModel implements Serializable {

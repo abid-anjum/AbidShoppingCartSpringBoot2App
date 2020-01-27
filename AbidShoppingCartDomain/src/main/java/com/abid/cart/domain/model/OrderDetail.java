@@ -17,6 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.abid.cart.domain.model.security.User;
+
 @Entity
 @Table(name = "order_detail")
 public class OrderDetail implements Serializable {

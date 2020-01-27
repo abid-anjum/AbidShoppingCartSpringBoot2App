@@ -5,7 +5,7 @@
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 	
 
-	<var name="user" class="com.abid.cart.domain.model.User"/>
+	<var name="user" class="com.abid.cart.domain.model.security.User"/>
 	<var name="billing" class="com.abid.cart.domain.model.Address"/>
   	
   	<!--

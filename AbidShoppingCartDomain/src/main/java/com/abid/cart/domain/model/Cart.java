@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.abid.cart.domain.model.security.User;
+
 @Entity
 public class Cart implements Serializable {
 
