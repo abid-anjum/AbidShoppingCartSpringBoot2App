@@ -1,3 +1,4 @@
+//added role repositoy
 package com.abid.cart.domain.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
