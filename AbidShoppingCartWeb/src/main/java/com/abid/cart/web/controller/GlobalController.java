@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -12,7 +13,7 @@ import com.abid.cart.domain.model.security.User;
 import com.abid.cart.domain.repository.UserRepository;
 import com.abid.web.cart.model.UserModel;
 
-@ControllerAdvice
+//@ControllerAdvice
 public class GlobalController {
 
 	@Autowired
@@ -30,7 +31,8 @@ public class GlobalController {
 			// get the authentication object
 			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 			
-			
+			String result = authentication.getPrincipal().toString();
+		   
 			if(!authentication.getPrincipal().equals("anonymousUser")){
 				// get the user from the database
 				user = userDAO.getByEmail(authentication.getName());
@@ -42,13 +44,12 @@ public class GlobalController {
 					userModel.setId(user.getId());
 					userModel.setFullName(user.getFirstName() + " " + user.getLastName());
 					
-					/*
 					userModel.setRole(user.getRole());
 					
 					if(user.getRole().equals("USER")) {
 						userModel.setCart(user.getCart());					
 					}				
-					*/
+				
 					session.setAttribute("userModel", userModel);
 					return userModel;
 				}			
